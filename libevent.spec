@@ -1,6 +1,6 @@
 Name:		libevent
 Version:	2.0.21
-Release:	1%{dist}
+Release:	2%{dist}
 Summary:	Abstract asynchronous event notification library
 
 Group:		System Environment/Libraries
@@ -86,6 +86,7 @@ mkdir -p $RPM_BUILD_ROOT/%{_docdir}/%{name}-devel-%{version}/sample
 %{_includedir}/evhttp.h
 %{_includedir}/evrpc.h
 %{_includedir}/evutil.h
+%dir %{_includedir}/event2
 %{_includedir}/event2/*.h
 %{_libdir}/libevent.so
 %{_libdir}/libevent_core.so
@@ -100,9 +101,14 @@ mkdir -p $RPM_BUILD_ROOT/%{_docdir}/%{name}-devel-%{version}/sample
 
 %files doc
 %defattr(-,root,root,0644)
+%dir %{_docdir}/%{name}-devel-%{version}
+%dir %{_docdir}/%{name}-devel-%{version}/html
 %{_docdir}/%{name}-devel-%{version}/html/*
+%dir %{_docdir}/%{name}-devel-%{version}/sample
 %{_docdir}/%{name}-devel-%{version}/sample/*
 
 %changelog
+* Sat Nov 2 2013 Peter Dunkley <peter.dunkley@crocodilertc.net>
+  - Added %dir declarations to packages
 * Tue Sep 11 2013 Peter Dunkley <peter.dunkley@crocodilertc.net>
   - CentOS 6.x spec file (based on the Fedora .spec)
